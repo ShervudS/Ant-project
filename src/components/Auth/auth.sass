@@ -1,0 +1,96 @@
+.Auth
+    width: 100%
+    min-height: 100vh
+    overflow: hidden
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: #ce749e
+
+$blue: #74abea
+$red: #f5766b
+$pink: #e55ebf
+$shadow: rgba(0, 0, 0, 0.25)
+
+@keyframes boxMove 
+    0%
+        transform: scale(var(--initialScale)) rotate(var(--initialAngle))
+    100%
+        transform: scale(var(--endScale)) rotate(var(--endAngle))
+
+.box 
+    top: calc(50% - 10vmin)
+    left: calc(50% - 10vmin)
+    width: 20vmin
+    height: 20vmin
+    position: absolute
+    background-color: $pink
+    background-image: radial-gradient(circle at 50% 10%, $blue 5%, transparent 80%), radial-gradient(circle at 50% 90%, $red 25%, transparent)
+    border-radius: 3vmin
+    box-shadow: 0 0 6vmin $shadow
+    animation: boxMove 4s linear infinite
+
+.box0
+    --initialScale: 0.30
+    --endScale: 1.00
+    --initialAngle: +10deg
+    --endAngle: +00deg
+.box1
+    --initialScale: 1.00
+    --endScale: 1.50
+    --initialAngle: +00deg
+    --endAngle: -10deg
+.box2
+    --initialScale: 1.50
+    --endScale: 2.00
+    --initialAngle: -10deg
+    --endAngle: -20deg
+.box3
+    --initialScale: 2.00
+    --endScale: 3.00
+    --initialAngle: -20deg
+    --endAngle: -25deg
+.box4
+    --initialScale: 3.00
+    --endScale: 4.00
+    --initialAngle: -25deg
+    --endAngle: -30deg
+.box5
+    --initialScale: 4.00
+    --endScale: 5.00
+    --initialAngle: -30deg
+    --endAngle: -40deg
+.box6
+    --initialScale: 5.00
+    --endScale: 6.50
+    --initialAngle: -40deg
+    --endAngle: -50deg
+.box7
+    --initialScale: 6.50
+    --endScale: 8.00
+    --initialAngle: -50deg
+    --endAngle: -60deg
+.box8
+    --initialScale: 8.00
+    --endScale: 10.0
+    --initialAngle: -60deg
+    --endAngle: -70deg
+.box9
+    --initialScale: 10.0
+    --endScale: 14.0
+    --initialAngle: -70deg
+    --endAngle: -85deg
+.box10
+    --initialScale: 14.0
+    --endScale: 20.0
+    --initialAngle: -85deg
+    --endAngle: -99deg
+
+@keyframes show 
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+
+.box0 
+    animation: boxMove 4s linear infinite, show 4s linear infinite
