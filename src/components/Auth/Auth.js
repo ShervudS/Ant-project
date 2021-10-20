@@ -2,6 +2,8 @@ import React from "react";
 import './animation.css'
 import './auth.sass'
 
+import AuthModal from './AuthModal/AuthModal'
+
 const Auth = () => {
     return(
         <div className="Auth">
@@ -16,6 +18,7 @@ const Auth = () => {
             <div className="box box2"></div>
             <div className="box box1"></div>
             <div className="box box0"></div>
+          <AuthModal />
         </div>
     )
 }
