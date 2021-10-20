@@ -1,20 +1,25 @@
-import React from 'react'
-import './AuthModal.sass'
+import React, { useState } from "react";
+import "./AuthModal.sass";
 
-import SingIn  from "./SingIn/SingIn"
-import Registration from './Registration/Registration'
-
-import 'antd/dist/antd.css';
-import { Form, Input, Button, Checkbox } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import SingIn from "./SingIn/SingIn";
+import Registration from "./Registration/Registration";
 
 const AuthModal = () => {
-	return (
-		<div className="AuthModal">
-			<SingIn />
-			<Registration />
-		</div>
-	)
-}
+  const [isRegistered, setIsRegistered] = useState(false);
 
-export default AuthModal
+  const toggleRegistred = () => {
+    setIsRegistered((prev) => !prev);
+  };
+
+  return (
+    <div className="AuthModal">
+      {!isRegistered ? (
+        <SingIn toggleRegistred={toggleRegistred} />
+      ) : (
+        <Registration toggleRegistred={toggleRegistred}/>
+      )}
+    </div>
+  );
+};
+
+export default AuthModal;
