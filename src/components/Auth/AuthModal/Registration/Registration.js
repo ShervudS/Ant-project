@@ -1,19 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Registration.sass";
 
 import {
   Space,
   Form,
   Input,
-  InputNumber,
-  Cascader,
   Select,
-  Row,
-  Col,
   Checkbox,
   Button,
-  AutoComplete,
-  Typography,
 } from "antd";
 
 const { Option } = Select;
@@ -51,10 +45,6 @@ const tailFormItemLayout = {
 const Registration = ({ toggleRegistred }) => {
   const [form] = Form.useForm();
 
-  const onFinish = (values) => {
-    console.log("Received values of form: ", values);
-  };
-
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
       <Select
@@ -68,7 +58,7 @@ const Registration = ({ toggleRegistred }) => {
     </Form.Item>
   );
 
-  const [autoCompleteResult, setAutoCompleteResult] = useState([]);
+  // const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
   return (
     <>

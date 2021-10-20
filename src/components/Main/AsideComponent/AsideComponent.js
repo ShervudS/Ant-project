@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import "./asideComponent.scss";
 
+import { NavLink } from "react-router-dom";
+import { Layout, Switch, Menu, Divider, Button } from "antd";
 import {
   UserOutlined,
   LaptopOutlined,
   NotificationOutlined,
   MenuUnfoldOutlined,
-  MenuFoldOutlined
+  MenuFoldOutlined,
 } from "@ant-design/icons";
-
-import { Layout, Switch, Menu, Divider, Button } from "antd";
 
 const { SubMenu } = Menu;
 const { Sider } = Layout;
@@ -65,26 +65,51 @@ const AsideComponent = () => {
           </Menu.ItemGroup>
         </SubMenu>
         <SubMenu key="sub2" icon={<LaptopOutlined />} title="Navigation">
-          <Menu.Item key="5">Dropdown</Menu.Item>
-          <Menu.Item key="6">Page Header</Menu.Item>
-          <Menu.Item key="7">Steps navigation</Menu.Item>
+          <Menu.Item key="5">
+            <NavLink to="/Dropdown">Dropdown</NavLink>
+          </Menu.Item>
+          <Menu.Item key="6">
+            <NavLink to="/Pageheader">Page Header</NavLink>
+          </Menu.Item>
+          <Menu.Item key="7">
+            <NavLink to="/Steps">Steps navigation</NavLink>
+          </Menu.Item>
           <Menu.Item key="8">option8</Menu.Item>
         </SubMenu>
         <SubMenu key="sub3" icon={<NotificationOutlined />} title="Data Entry">
-          <Menu.Item key="9">Auto complete</Menu.Item>
-          <Menu.Item key="10">Cascader</Menu.Item>
-          <Menu.Item key="11">option11</Menu.Item>
-          <Menu.Item key="12">option12</Menu.Item>
+          <Menu.Item key="9">
+            <NavLink to="/Autocomplete">Auto complete</NavLink>
+          </Menu.Item>
+
+          <Menu.Item key="10">
+            <NavLink to="/Cascader">Cascader</NavLink>
+          </Menu.Item>
+
+          <Menu.Item key="11">
+            <NavLink to="/Checkbox">Checkbox</NavLink>
+          </Menu.Item>
+
+          <Menu.Item key="12">
+            <NavLink to="/DatePicker">DatePicker</NavLink>
+          </Menu.Item>
+
+          <Menu.Item key="13">
+            <NavLink to="/Form">Form</NavLink>
+          </Menu.Item>
+
+          <Menu.Item key="14">
+            <NavLink to="/Rate">Rate</NavLink>
+          </Menu.Item>
         </SubMenu>
       </Menu>
       <Divider></Divider>
-      <Switch onChange={changeMode} 
-      disabled={isAsideCollapse ? true : false}
-      /> Change Mode
-      <Button 
-        onClick={asideCollapseHandler}
-      >
-        { isAsideCollapse ? <MenuUnfoldOutlined /> : <MenuFoldOutlined /> }
+      <Switch
+        onChange={changeMode}
+        disabled={isAsideCollapse ? true : false}
+      />{" "}
+      Change Mode
+      <Button onClick={asideCollapseHandler}>
+        {isAsideCollapse ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </Button>
     </Sider>
   );

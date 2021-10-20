@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { AppContext } from "../../../App/App";
 
 import "antd/dist/antd.css";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
 const SingIn = ({ toggleRegistred }) => {
+  const { toggleIsAuth } = useContext(AppContext);
   return (
     <>
       <Form
@@ -13,7 +16,7 @@ const SingIn = ({ toggleRegistred }) => {
         initialValues={{
           remember: true,
         }}
-        onFinish={toggleRegistred}
+        onFinish={toggleIsAuth}
       >
         <Form.Item
           name="username"

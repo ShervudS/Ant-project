@@ -4,10 +4,14 @@ import "./app.sass";
 import Auth from "../Auth/Auth";
 import Main from "../Main/Main";
 
-export const AuthContext = React.createContext();
+export const AppContext = React.createContext();
 
 function App() {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("auth") || false);
+
+  const toggleIsAuth = () => {
+    setIsAuth((prev) => !prev);
+  };
 
   const [userData, setUserData] = useState({
     userName: "admin",
@@ -15,9 +19,11 @@ function App() {
   });
 
   return (
-    <AuthContext.Provider value={(isAuth, setIsAuth, userData, setUserData)}>
+    <AppContext.Provider
+      value={{ isAuth, toggleIsAuth, userData, setUserData }}
+    >
       <div className="App">{isAuth ? <Main /> : <Auth />}</div>
-    </AuthContext.Provider>
+    </AppContext.Provider>
   );
 }
 
